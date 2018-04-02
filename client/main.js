@@ -5,12 +5,14 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { Bins } from '../imports/collections/bins'
 
 import App from './components/app'
+import BinsList from './components/bins/bins_list'
 import BinsMain from './components/bins/bins_main'
 
 const routes = (
     <Router history={browserHistory}>
-        <Route path="/" components={App}>
-            <Route path="bins" components={BinsMain} />
+        <Route path="/" component={App}>
+            <IndexRoute component={BinsList} />
+            <Route path="bins/:binId" component={BinsMain} />
         </Route>
     </Router>
 )
